@@ -16,10 +16,11 @@ def get_uploaded_images():
     rootdir = os.getcwd()
     print (rootdir)
     filenames=[]
-    for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads'):
+    for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads/'):
         for filename in files:
             print (os.path.join(subdir, filename)) 
-            filenames.append("uploads"+filename)
+            if(filename!=".gitkeep"):
+                filenames.append("uploads/"+filename)
     return filenames
 ###
 # Routing for your application.
